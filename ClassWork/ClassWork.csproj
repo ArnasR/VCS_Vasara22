@@ -64,8 +64,10 @@
     <Compile Include="DemoQaTextBox.cs" />
     <Compile Include="FirstLesson.cs" />
     <Compile Include="HomeWork1.cs" />
+    <Compile Include="Page\CalculatorPage.cs" />
     <Compile Include="Page\DemoQaTextBoxPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\CalculatorTests.cs" />
     <Compile Include="Tests\DemoQaTextBoxTests.cs" />
     <Compile Include="TestWebDriver.cs" />
   </ItemGroup>
