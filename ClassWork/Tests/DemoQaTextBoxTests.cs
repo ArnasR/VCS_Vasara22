@@ -36,6 +36,22 @@ namespace ClassWork.Tests
             demoQaTextBoxPage.VerifyFullName(text);
         }
 
+        [Test]
+        public static void TestFullNameAndEmail()
+        {
+            DemoQaTextBoxPage demoQaTextBoxPage = new DemoQaTextBoxPage(_driver);
+
+            string name = "Jonas";
+            string email = "jonas@jonas.lt";
+
+            //demoQaTextBoxPage.EnterFullNameAndEmail(name, email);
+            demoQaTextBoxPage.InsertFullNameText(name);
+            demoQaTextBoxPage.InsertEmailText(email);
+            demoQaTextBoxPage.ClickSubmitButton();
+            demoQaTextBoxPage.VerifyFullName(name);
+            demoQaTextBoxPage.VerifyEmail(email);
+        }
+
         [OneTimeTearDown]
         public static void TearDown()
         {

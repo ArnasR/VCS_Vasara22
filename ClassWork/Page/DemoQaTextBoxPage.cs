@@ -15,6 +15,8 @@ namespace ClassWork.Page
         private IWebElement _fullNameInputField => _driver.FindElement(By.Id("userName"));
         private IWebElement _submitButton => _driver.FindElement(By.CssSelector("#submit"));
         private IWebElement _fullNameResult => _driver.FindElement(By.Id("name"));
+        private IWebElement _emailInputField => _driver.FindElement(By.XPath("//*[@id='userEmail']"));
+        private IWebElement _emailResult => _driver.FindElement(By.Id("email"));
 
         public DemoQaTextBoxPage(IWebDriver webDriver)
         {
@@ -37,5 +39,23 @@ namespace ClassWork.Page
         {
             Assert.AreEqual($"Name:{expectedResult}", _fullNameResult.Text, "FullName is wrong!");
         }
+
+        public void InsertEmailText(string email)
+        {
+            _emailInputField.Clear();
+            _emailInputField.SendKeys(email);
+        }
+
+        public void VerifyEmail(string expectedResult)
+        {
+            Assert.AreEqual($"Email:{expectedResult}", _emailResult.Text, "Email is wrong!");
+        }
+
+        public void EnterFullNameAndEmail(string fullName, string email)
+        {
+            InsertFullNameText(fullName);
+            InsertEmailText(email);
+        }
+
     }
 }
