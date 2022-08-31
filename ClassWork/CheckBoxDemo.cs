@@ -43,12 +43,6 @@ namespace ClassWork
             }
         }
 
-        /*
-         * Pažymime “Click on this check box” , patikriname kad atsirado “Success - Check box is checked” pranešimas
-         * Pažymime visus “Multiple Checkbox Demo” sekcijos varneles, patikriname kad mygtukas persivadino į “Uncheck All”
-         * Paspaudžiame mygtuką “Uncheck All” , patikriname kad visos “Multiple Checkbox Demo” sekcijos varneles atžymėtos
-        */
-
         [Test]
         public static void TestSingleCheckBox()
         {
@@ -103,6 +97,5 @@ namespace ClassWork
         {
             _driver.Close();
         }
-
     }
 }
