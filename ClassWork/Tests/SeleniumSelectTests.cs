@@ -16,5 +16,14 @@ namespace ClassWork.Tests
                 .SelectDropDownByValue("Friday")
                 .VerifyDropDownResult("Friday");
         }
+
+        [Test]
+        public void TestMultipleDropDown()
+        {
+            _seleniumSelectPage.NavigateToDefaultPage()
+                .SelectFromMultipleDropDownAndClickFirstSelectedButton("Florida", "Texas")
+                .ClickGetFirstSelectedButton()
+                .VerifyGetFirstSelectedResult("Florida");
+        }
     }
 }
