@@ -16,6 +16,7 @@ namespace ClassWork.Tests
 
         public static CalculatorPage _calculatorPage;
         public static DemoQaTextBoxPage _demoQaTextBoxPage;
+        public static SeleniumSelectPage _seleniumSelectPage;
 
         [OneTimeSetUp]
         public static void Setup()
@@ -26,6 +27,7 @@ namespace ClassWork.Tests
 
             _calculatorPage = new CalculatorPage(Driver);
             _demoQaTextBoxPage = new DemoQaTextBoxPage(Driver);
+            _seleniumSelectPage = new SeleniumSelectPage(Driver);
         }
 
         [OneTimeTearDown]
