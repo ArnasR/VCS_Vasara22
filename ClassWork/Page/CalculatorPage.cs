@@ -8,19 +8,24 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Page
 {
-    class CalculatorPage
+    class CalculatorPage : BasePage
     {
-        private static IWebDriver _driver;
+        private const string PageAddress = "https://testsheepnz.github.io/BasicCalculator.html#main-body";
 
-        private IWebElement _firstInputField => _driver.FindElement(By.Id("number1Field"));
-        private IWebElement _secondInputField => _driver.FindElement(By.Id("number2Field"));
-        private IWebElement _integerCheckBox => _driver.FindElement(By.Id("integerSelect"));
-        private IWebElement _submitButton => _driver.FindElement(By.Id("calculateButton"));
-        private IWebElement _result => _driver.FindElement(By.Id("numberAnswerField"));
+        private IWebElement _firstInputField => Driver.FindElement(By.Id("number1Field"));
+        private IWebElement _secondInputField => Driver.FindElement(By.Id("number2Field"));
+        private IWebElement _integerCheckBox => Driver.FindElement(By.Id("integerSelect"));
+        private IWebElement _submitButton => Driver.FindElement(By.Id("calculateButton"));
+        private IWebElement _result => Driver.FindElement(By.Id("numberAnswerField"));
 
-        public CalculatorPage(IWebDriver webDriver)
+        public CalculatorPage(IWebDriver webDriver) : base(webDriver) { }
+
+        public void NavigateToDefaultPage()
         {
-            _driver = webDriver;
+            if (Driver.Url != PageAddress)
+            {
+                Driver.Url = PageAddress;
+            }
         }
 
         public void EnterFirstNumber(string firstNumber)

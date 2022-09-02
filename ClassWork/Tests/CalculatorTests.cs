@@ -21,7 +21,6 @@ namespace ClassWork.Tests
             _driver = new ChromeDriver();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _driver.Manage().Window.Maximize();
-            _driver.Url = "https://testsheepnz.github.io/BasicCalculator.html#main-body";
         }
 
         [TestCase("25", "25.5", "50.5", false, TestName = "25 + 25,5 = 50,5")]
@@ -32,6 +31,7 @@ namespace ClassWork.Tests
         {
             CalculatorPage calculatorPage = new CalculatorPage(_driver);
 
+            calculatorPage.NavigateToDefaultPage();
             calculatorPage.EnterFirstNumber(number1);
             calculatorPage.EnterSecondNumber(number2);
             calculatorPage.IsIntegerRequired(isIntegerEnabled);
