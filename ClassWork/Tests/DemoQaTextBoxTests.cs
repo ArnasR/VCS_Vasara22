@@ -10,51 +10,30 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Tests
 {
-    class DemoQaTextBoxTests
+    class DemoQaTextBoxTests : BaseTest
     {
-        private static IWebDriver _driver;
-
-        [OneTimeSetUp]
-        public static void Setup()
-        {
-            _driver = new ChromeDriver();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _driver.Manage().Window.Maximize();
-        }
-
-
         [Test]
         public static void TestFullNameInput()
         {
-            DemoQaTextBoxPage demoQaTextBoxPage = new DemoQaTextBoxPage(_driver);
-
             string text = "Arnas";
 
-            demoQaTextBoxPage.NavigateToDefaultPage();
-            demoQaTextBoxPage.InsertFullNameText(text);
-            demoQaTextBoxPage.ClickSubmitButton();
-            demoQaTextBoxPage.VerifyFullName(text);
+            _demoQaTextBoxPage.NavigateToDefaultPage();
+            _demoQaTextBoxPage.InsertFullNameText(text);
+            _demoQaTextBoxPage.ClickSubmitButton();
+            _demoQaTextBoxPage.VerifyFullName(text);
         }
 
         [Test]
         public static void TestFullNameAndEmail()
         {
-            DemoQaTextBoxPage demoQaTextBoxPage = new DemoQaTextBoxPage(_driver);
-
             string name = "Jonas";
             string email = "jonas@jonas.lt";
 
-            demoQaTextBoxPage.NavigateToDefaultPage();
-            demoQaTextBoxPage.EnterFullNameAndEmail(name, email);
-            demoQaTextBoxPage.ClickSubmitButton();
-            demoQaTextBoxPage.VerifyFullName(name);
-            demoQaTextBoxPage.VerifyEmail(email);
-        }
-
-        [OneTimeTearDown]
-        public static void TearDown()
-        {
-            _driver.Close();
+            _demoQaTextBoxPage.NavigateToDefaultPage();
+            _demoQaTextBoxPage.EnterFullNameAndEmail(name, email);
+            _demoQaTextBoxPage.ClickSubmitButton();
+            _demoQaTextBoxPage.VerifyFullName(name);
+            _demoQaTextBoxPage.VerifyEmail(email);
         }
     }
 }
