@@ -20,7 +20,6 @@ namespace ClassWork.Tests
             _driver = new ChromeDriver();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _driver.Manage().Window.Maximize();
-            _driver.Url = "https://demoqa.com/text-box";
         }
 
 
@@ -31,6 +30,7 @@ namespace ClassWork.Tests
 
             string text = "Arnas";
 
+            demoQaTextBoxPage.NavigateToDefaultPage();
             demoQaTextBoxPage.InsertFullNameText(text);
             demoQaTextBoxPage.ClickSubmitButton();
             demoQaTextBoxPage.VerifyFullName(text);
@@ -44,9 +44,8 @@ namespace ClassWork.Tests
             string name = "Jonas";
             string email = "jonas@jonas.lt";
 
-            //demoQaTextBoxPage.EnterFullNameAndEmail(name, email);
-            demoQaTextBoxPage.InsertFullNameText(name);
-            demoQaTextBoxPage.InsertEmailText(email);
+            demoQaTextBoxPage.NavigateToDefaultPage();
+            demoQaTextBoxPage.EnterFullNameAndEmail(name, email);
             demoQaTextBoxPage.ClickSubmitButton();
             demoQaTextBoxPage.VerifyFullName(name);
             demoQaTextBoxPage.VerifyEmail(email);

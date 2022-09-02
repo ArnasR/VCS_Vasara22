@@ -8,19 +8,24 @@ using System.Threading.Tasks;
 
 namespace ClassWork.Page
 {
-    class DemoQaTextBoxPage
+    class DemoQaTextBoxPage : BasePage
     {
-       private static IWebDriver _driver;
+        private const string PageAddress = "https://demoqa.com/text-box";
 
-        private IWebElement _fullNameInputField => _driver.FindElement(By.Id("userName"));
-        private IWebElement _submitButton => _driver.FindElement(By.CssSelector("#submit"));
-        private IWebElement _fullNameResult => _driver.FindElement(By.Id("name"));
-        private IWebElement _emailInputField => _driver.FindElement(By.XPath("//*[@id='userEmail']"));
-        private IWebElement _emailResult => _driver.FindElement(By.Id("email"));
+        private IWebElement _fullNameInputField => Driver.FindElement(By.Id("userName"));
+        private IWebElement _submitButton => Driver.FindElement(By.CssSelector("#submit"));
+        private IWebElement _fullNameResult => Driver.FindElement(By.Id("name"));
+        private IWebElement _emailInputField => Driver.FindElement(By.XPath("//*[@id='userEmail']"));
+        private IWebElement _emailResult => Driver.FindElement(By.Id("email"));
 
-        public DemoQaTextBoxPage(IWebDriver webDriver)
+        public DemoQaTextBoxPage(IWebDriver webDriver) : base(webDriver) { }
+
+        public void NavigateToDefaultPage()
         {
-            _driver = webDriver;
+            if (Driver.Url != PageAddress)
+            {
+                Driver.Url = PageAddress;
+            }
         }
 
         public void InsertFullNameText(string fullName)
@@ -31,7 +36,7 @@ namespace ClassWork.Page
 
         public void ClickSubmitButton()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 150)");
+            ScrollDown();
             _submitButton.Click();
         }
 
@@ -56,6 +61,5 @@ namespace ClassWork.Page
             InsertFullNameText(fullName);
             InsertEmailText(email);
         }
-
     }
 }
