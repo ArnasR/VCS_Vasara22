@@ -33,7 +33,7 @@ namespace ClassWork.Tests
         [OneTimeTearDown]
         public static void TearDown()
         {
-           // Driver.Close();
+           Driver.Close();
         }
     }
 }

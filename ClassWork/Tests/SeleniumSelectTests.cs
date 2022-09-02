@@ -22,9 +22,21 @@ namespace ClassWork.Tests
         public void TestMultipleDropDownAndValidateFirst(params string[] selectedElements)
         {
             _seleniumSelectPage.NavigateToDefaultPage()
-                .SelectFromMultipleDropDownAndClickFirstSelectedButton(selectedElements.ToList())
+                .SelectFromMultipleDropDown(selectedElements.ToList())
                 .ClickGetFirstSelectedButton()
                 .VerifyGetFirstSelectedResult(selectedElements[0]);
         }
+
+        [TestCase("Florida", "Texas", TestName = "Pasirenkam 2 reiksmes ir patikrinam visus pazymetus")]
+        [TestCase("Ohio", "California", "Washington", TestName = "Pasirenkam 3 reiksmes ir patikrinam visus pazymetus")]
+        public void TestMultipleDropDownAndValidateAll(params string[] selectedElements)
+        {
+            _seleniumSelectPage.NavigateToDefaultPage()
+                .SelectFromMultipleDropDown(selectedElements.ToList())
+                .ClickGetAllSelectedButton()
+                .VerifyGetAllSelectedResult(selectedElements.ToList());
+        }
+
+
     }
 }

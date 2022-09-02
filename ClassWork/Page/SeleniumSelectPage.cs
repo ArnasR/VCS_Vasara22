@@ -56,7 +56,7 @@ namespace ClassWork.Page
             return this;
         }
 
-        public SeleniumSelectPage SelectFromMultipleDropDownAndClickFirstSelectedButton(List<string> listOfStates)
+        public SeleniumSelectPage SelectFromMultipleDropDown(List<string> listOfStates)
         {
             Driver.Navigate().Refresh();
             _multiDropDown.DeselectAll();
@@ -89,10 +89,27 @@ namespace ClassWork.Page
             return this;
         }
 
+        public SeleniumSelectPage ClickGetAllSelectedButton()
+        {
+            _getAllSelectedButton.Click();
+
+            return this;
+        }
+
         public SeleniumSelectPage VerifyGetFirstSelectedResult(string result)
         {
             Assert.AreEqual($"First selected option is : {result}", _multiDropDownResult.Text, "Result is wrong!");
 
+            return this;
+        }
+
+        public SeleniumSelectPage VerifyGetAllSelectedResult(List<string> listOfStates)
+        {
+            string result = _multiDropDownResult.Text;
+            foreach (string state in listOfStates)
+            {
+                Assert.IsTrue(result.Contains(state), "result is wrong!");
+            }
             return this;
         }
     }
