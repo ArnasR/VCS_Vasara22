@@ -17,13 +17,14 @@ namespace ClassWork.Tests
                 .VerifyDropDownResult("Friday");
         }
 
-        [Test]
-        public void TestMultipleDropDown()
+        [TestCase("Florida", "Texas", TestName = "Pasirenkam 2 reiksmes ir patikrinam pirma")]
+        [TestCase("Ohio", "California", "Washington", TestName = "Pasirenkam 3 reiksmes ir patikrinam pirma")]
+        public void TestMultipleDropDownAndValidateFirst(params string[] selectedElements)
         {
             _seleniumSelectPage.NavigateToDefaultPage()
-                .SelectFromMultipleDropDownAndClickFirstSelectedButton("Florida", "Texas")
+                .SelectFromMultipleDropDownAndClickFirstSelectedButton(selectedElements.ToList())
                 .ClickGetFirstSelectedButton()
-                .VerifyGetFirstSelectedResult("Florida");
+                .VerifyGetFirstSelectedResult(selectedElements[0]);
         }
     }
 }

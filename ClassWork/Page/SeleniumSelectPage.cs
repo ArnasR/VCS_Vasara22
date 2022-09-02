@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ClassWork.Page
@@ -55,19 +56,23 @@ namespace ClassWork.Page
             return this;
         }
 
-        public SeleniumSelectPage SelectFromMultipleDropDownAndClickFirstSelectedButton(string first, string second)
+        public SeleniumSelectPage SelectFromMultipleDropDownAndClickFirstSelectedButton(List<string> listOfStates)
         {
-            //Florida
-            //Texas
+            Driver.Navigate().Refresh();
             _multiDropDown.DeselectAll();
+            
             Actions action = new Actions(Driver);
             action.KeyDown(Keys.LeftControl);
 
-            foreach (IWebElement option in _multiDropDown.Options)
+            foreach (string state in listOfStates)
             {
-                if (option.Text.Equals("Florida") || option.Text.Equals("Texas"))
+                foreach (IWebElement option in _multiDropDown.Options)
                 {
-                    action.Click(option);
+                    if (state.Equals(option.GetAttribute("value")))
+                    {
+                        action.Click(option);
+                        break;
+                    }
                 }
             }
 
