@@ -20,46 +20,60 @@ namespace ClassWork.Page
 
         public DemoQaTextBoxPage(IWebDriver webDriver) : base(webDriver) { }
 
-        public void NavigateToDefaultPage()
+        public DemoQaTextBoxPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddress)
             {
                 Driver.Url = PageAddress;
             }
+
+            return this;
         }
 
-        public void InsertFullNameText(string fullName)
+        public DemoQaTextBoxPage InsertFullNameText(string fullName)
         {
             _fullNameInputField.Clear();
             _fullNameInputField.SendKeys(fullName);
+
+            return this;
         }
 
-        public void ClickSubmitButton()
+        public DemoQaTextBoxPage ClickSubmitButton()
         {
             ScrollDown();
             _submitButton.Click();
+
+            return this;
         }
 
-        public void VerifyFullName(string expectedResult)
+        public DemoQaTextBoxPage VerifyFullName(string expectedResult)
         {
             Assert.AreEqual($"Name:{expectedResult}", _fullNameResult.Text, "FullName is wrong!");
+
+            return this;
         }
 
-        public void InsertEmailText(string email)
+        public DemoQaTextBoxPage InsertEmailText(string email)
         {
             _emailInputField.Clear();
             _emailInputField.SendKeys(email);
+
+            return this;
         }
 
-        public void VerifyEmail(string expectedResult)
+        public DemoQaTextBoxPage VerifyEmail(string expectedResult)
         {
             Assert.AreEqual($"Email:{expectedResult}", _emailResult.Text, "Email is wrong!");
+
+            return this;
         }
 
-        public void EnterFullNameAndEmail(string fullName, string email)
+        public DemoQaTextBoxPage EnterFullNameAndEmail(string fullName, string email)
         {
             InsertFullNameText(fullName);
             InsertEmailText(email);
+
+            return this;
         }
     }
 }

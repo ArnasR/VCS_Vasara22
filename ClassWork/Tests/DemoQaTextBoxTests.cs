@@ -17,10 +17,10 @@ namespace ClassWork.Tests
         {
             string text = "Arnas";
 
-            _demoQaTextBoxPage.NavigateToDefaultPage();
-            _demoQaTextBoxPage.InsertFullNameText(text);
-            _demoQaTextBoxPage.ClickSubmitButton();
-            _demoQaTextBoxPage.VerifyFullName(text);
+            _demoQaTextBoxPage.NavigateToDefaultPage()
+                .InsertFullNameText(text)
+                .ClickSubmitButton()
+                .VerifyFullName(text);
         }
 
         [Test]
@@ -29,11 +29,11 @@ namespace ClassWork.Tests
             string name = "Jonas";
             string email = "jonas@jonas.lt";
 
-            _demoQaTextBoxPage.NavigateToDefaultPage();
-            _demoQaTextBoxPage.EnterFullNameAndEmail(name, email);
-            _demoQaTextBoxPage.ClickSubmitButton();
-            _demoQaTextBoxPage.VerifyFullName(name);
-            _demoQaTextBoxPage.VerifyEmail(email);
+            _demoQaTextBoxPage.NavigateToDefaultPage()
+            .EnterFullNameAndEmail(name, email)
+            .ClickSubmitButton()
+            .VerifyFullName(name)
+            .VerifyEmail(email);                
         }
     }
 }
