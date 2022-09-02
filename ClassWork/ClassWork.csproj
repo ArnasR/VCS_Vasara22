@@ -64,6 +64,7 @@
     <Compile Include="DemoQaTextBox.cs" />
     <Compile Include="FirstLesson.cs" />
     <Compile Include="HomeWork1.cs" />
+    <Compile Include="Page\BasePage.cs" />
     <Compile Include="Page\CalculatorPage.cs" />
     <Compile Include="Page\DemoQaTextBoxPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
