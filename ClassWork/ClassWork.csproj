@@ -76,6 +76,7 @@
     <Compile Include="Tests\DemoQaTextBoxTests.cs" />
     <Compile Include="Tests\SeleniumSelectTests.cs" />
     <Compile Include="TestWebDriver.cs" />
+    <Compile Include="Tools\MyScreenshot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

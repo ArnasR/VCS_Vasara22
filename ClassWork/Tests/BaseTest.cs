@@ -1,6 +1,8 @@
 ﻿using ClassWork.Drivers;
 using ClassWork.Page;
+using ClassWork.Tools;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -22,15 +24,24 @@ namespace ClassWork.Tests
         [OneTimeSetUp]
         public static void Setup()
         {
-            Driver = CustomDriver.GetFirefoxDriver();
+            Driver = CustomDriver.GetChromeDriver();
 
             _calculatorPage = new CalculatorPage(Driver);
             _demoQaTextBoxPage = new DemoQaTextBoxPage(Driver);
             _seleniumSelectPage = new SeleniumSelectPage(Driver);
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public static void TearDown()
+        {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                MyScreenshot.TakeScreenshot(Driver);
+            }
+        }
+
+        [OneTimeTearDown]
+        public static void OneTimeTearDown()
         {
            Driver.Close();
         }
