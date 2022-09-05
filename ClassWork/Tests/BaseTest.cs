@@ -1,4 +1,5 @@
-﻿using ClassWork.Page;
+﻿using ClassWork.Drivers;
+using ClassWork.Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -21,9 +22,7 @@ namespace ClassWork.Tests
         [OneTimeSetUp]
         public static void Setup()
         {
-            Driver = new ChromeDriver();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Driver.Manage().Window.Maximize();
+            Driver = CustomDriver.GetFirefoxDriver();
 
             _calculatorPage = new CalculatorPage(Driver);
             _demoQaTextBoxPage = new DemoQaTextBoxPage(Driver);

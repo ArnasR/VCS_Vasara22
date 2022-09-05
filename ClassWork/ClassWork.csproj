@@ -62,6 +62,8 @@
     <Compile Include="CheckBoxDemo.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DemoQaTextBox.cs" />
+    <Compile Include="Drivers\Browsers.cs" />
+    <Compile Include="Drivers\CustomDriver.cs" />
     <Compile Include="FirstLesson.cs" />
     <Compile Include="HomeWork1.cs" />
     <Compile Include="Page\BasePage.cs" />
