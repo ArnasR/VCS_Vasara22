@@ -71,12 +71,14 @@
     <Compile Include="Page\DemoQaTextBoxPage.cs" />
     <Compile Include="Page\SebCalculatorPage.cs" />
     <Compile Include="Page\SeleniumSelectPage.cs" />
+    <Compile Include="Page\SenukaiPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\CalculatorTests.cs" />
     <Compile Include="Tests\DemoQaTextBoxTests.cs" />
     <Compile Include="Tests\SebCalculatorTests.cs" />
     <Compile Include="Tests\SeleniumSelectTests.cs" />
+    <Compile Include="Tests\SenukaiTests.cs" />
     <Compile Include="TestWebDriver.cs" />
     <Compile Include="Tools\MyScreenshot.cs" />
   </ItemGroup>

@@ -21,16 +21,18 @@ namespace ClassWork.Tests
         public static DemoQaTextBoxPage _demoQaTextBoxPage;
         public static SeleniumSelectPage _seleniumSelectPage;
         public static SebCalculatorPage _sebCalculatorPage;
+        public static SenukaiPage _senukaiPage;
 
         [OneTimeSetUp]
         public static void Setup()
         {
-            Driver = CustomDriver.GetIncognitoChrome();
+            Driver = CustomDriver.GetChromeDriver();
 
             _calculatorPage = new CalculatorPage(Driver);
             _demoQaTextBoxPage = new DemoQaTextBoxPage(Driver);
             _seleniumSelectPage = new SeleniumSelectPage(Driver);
             _sebCalculatorPage = new SebCalculatorPage(Driver);
+            _senukaiPage = new SenukaiPage(Driver);
         }
 
         [TearDown]

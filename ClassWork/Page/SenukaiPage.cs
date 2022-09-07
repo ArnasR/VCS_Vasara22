@@ -13,12 +13,14 @@ namespace ClassWork.Page
 
         public SenukaiPage(IWebDriver webDriver) : base(webDriver) { }
 
-        public void NavigateToDefaultPage()
+        public SenukaiPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddress)
             {
                 Driver.Url = PageAddress;
             }
+
+            return this;
         }
 
         public SenukaiPage AcceptCookies()
