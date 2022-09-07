@@ -21,6 +21,23 @@ namespace ClassWork.Drivers
             return GetDriver(Browsers.Firefox);
         }
 
+        public static IWebDriver GetIncognitoChrome()
+        {
+            return GetDriver(Browsers.IncognitoChrome);
+        }
+
+        private static IWebDriver GetChromeWithIncognitoOption()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("incognito");
+            
+           //options.AddArguments("incognito", "start-maximized");
+           // options.AddArguments("headless");
+            
+            return new ChromeDriver(options);
+        }
+
+
         private static IWebDriver GetDriver(Browsers browserName)
         {
             IWebDriver webDriver = null;
@@ -33,12 +50,15 @@ namespace ClassWork.Drivers
                 case Browsers.Firefox:
                     webDriver = new FirefoxDriver();
                     break;
+                case Browsers.IncognitoChrome:
+                    webDriver = GetChromeWithIncognitoOption();
+                    break;
                 default:
                     webDriver = new ChromeDriver();
                     break;
             }
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            webDriver.Manage().Window.Maximize();
+         //   webDriver.Manage().Window.Maximize();
 
             return webDriver;
         }

@@ -25,7 +25,7 @@ namespace ClassWork.Tests
         [OneTimeSetUp]
         public static void Setup()
         {
-            Driver = CustomDriver.GetChromeDriver();
+            Driver = CustomDriver.GetIncognitoChrome();
 
             _calculatorPage = new CalculatorPage(Driver);
             _demoQaTextBoxPage = new DemoQaTextBoxPage(Driver);
