@@ -25,5 +25,14 @@ namespace ClassWork.Tests
                 .CancelSecondAlert()
                 .ValidateSecondAlertDismiss();
         }
+
+        [Test]
+        public static void TestThirdAlertText()
+        {
+            _alertPage.NavigateToDefaultPage()
+                .ClickThirdAlertButton()
+                .SendKeysToThirdAlert("Test")
+                .ValidateThirdAlertText("Test");
+        }
     }
 }
