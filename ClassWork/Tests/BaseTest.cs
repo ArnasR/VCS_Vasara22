@@ -22,6 +22,7 @@ namespace ClassWork.Tests
         public static SeleniumSelectPage _seleniumSelectPage;
         public static SebCalculatorPage _sebCalculatorPage;
         public static SenukaiPage _senukaiPage;
+        public static AlertPage _alertPage;
 
         [OneTimeSetUp]
         public static void Setup()
@@ -33,6 +34,7 @@ namespace ClassWork.Tests
             _seleniumSelectPage = new SeleniumSelectPage(Driver);
             _sebCalculatorPage = new SebCalculatorPage(Driver);
             _senukaiPage = new SenukaiPage(Driver);
+            _alertPage = new AlertPage(Driver);
         }
 
         [TearDown]
