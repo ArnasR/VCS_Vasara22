@@ -23,13 +23,31 @@ namespace ClassWork.Page
             return this;
         }
 
-        public SenukaiPage AcceptCookies()
+        public SenukaiPage AcceptAllCookies()
         {
             Cookie myCookie = new Cookie("CookieConsent",
-                "{stamp:%27PXyoyHsd8h2rWSbfWRSYw1Hw0FWHWxeMFkmENfnuWJ+qQHyMpDTDaw==%27%2Cnecessary:true%2Cpreferences:false%2Cstatistics:false%2Cmarketing:true%2Cver:1%2Cutc:1662566380304%2Cregion:%27lt%27}",
+                "{stamp:%27PXyoyHsd8h2rWSbfWRSYw1Hw0FWHWxeMFkmENfnuWJ+qQHyMpDTDaw==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1662566380304%2Cregion:%27lt%27}",
                 "www.senukai.lt",
                 "/",
                 DateTime.Now.AddDays(1));
+
+            Driver.Manage().Cookies.AddCookie(myCookie);
+            Driver.Navigate().Refresh();
+
+            return this;
+        }
+
+        public SenukaiPage AcceptCutomCookies(bool necessary, bool preferences, bool statistics, bool marketing, int days)
+        {
+            Cookie myCookie = new Cookie("CookieConsent",
+                "{stamp:%27PXyoyHsd8h2rWSbfWRSYw1Hw0FWHWxeMFkmENfnuWJ+qQHyMpDTDaw==%27%2C" +
+                "necessary:"+ necessary.ToString() + "%2C" +
+                "preferences:"+ preferences.ToString() + "%2C" +
+                "statistics:"+ statistics.ToString() + "%2C" +
+                "marketing:"+ marketing.ToString() + "%2Cver:1%2Cutc:1662566380304%2Cregion:%27lt%27}",
+                "www.senukai.lt",
+                "/",
+                DateTime.Now.AddDays(days));
 
             Driver.Manage().Cookies.AddCookie(myCookie);
             Driver.Navigate().Refresh();

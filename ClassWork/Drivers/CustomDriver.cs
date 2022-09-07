@@ -58,7 +58,7 @@ namespace ClassWork.Drivers
                     break;
             }
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-         //   webDriver.Manage().Window.Maximize();
+            webDriver.Manage().Window.Maximize();
 
             return webDriver;
         }
