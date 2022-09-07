@@ -16,5 +16,14 @@ namespace ClassWork.Tests
                 .ClickFirstAlertButton()
                 .AcceptFirstAlert();
         }
+
+        [Test]
+        public static void DismissSecondAlert()
+        {
+            _alertPage.NavigateToDefaultPage()
+                .ClickSecondAlertButton()
+                .CancelSecondAlert()
+                .ValidateSecondAlertDismiss();
+        }
     }
 }
